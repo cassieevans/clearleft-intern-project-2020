@@ -84,7 +84,7 @@ h6 {
         Segoe UI Symbol;
     font-weight: 600;
     line-height: 1.2;
-    margin: 0 0 1rem;
+    margin: 0 0 1.5rem;
 }
 
 h1 {
@@ -103,11 +103,30 @@ h4 {
     font-size: calc(16.97px + (34.99 - 16.97) * var(--body-lock));
 }
 h5 {
-    font-size: calc(14px + (24.28 - 14) * var(--body-lock));
+    font-size: calc(14px + (22.28 - 14) * var(--body-lock));
 }
 
 q {
     font-weight: bold;
+}
+
+.list {
+    list-style: none;
+    margin-left: 1rem;
+    margin-top: 2rem;
+}
+
+.list li {
+    line-height: 1.5;
+    padding: 0.5rem 0;
+}
+
+.list li::before {
+    content: "\2022";
+    color: var(--primary);
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1.3rem;
 }
 
 /* some aesthetic font styling classes */
@@ -129,10 +148,16 @@ q {
 }
 
 .intro {
-    font-size: calc(14px + (24.28 - 14) * var(--body-lock));
+    font-size: calc(14px + (22.28 - 14) * var(--body-lock));
     font-family: "Karla", sans-serif;
     font-weight: 600;
     line-height: 1.5;
+}
+
+.lead {
+    font-size: calc(14px + (22.28 - 14) * var(--body-lock));
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .highlight {
@@ -185,7 +210,7 @@ mark {
     background-color: var(--bg-shade);
 }
 
-a:not([class]), cite {
+a:not([class]) {
     font-weight: bold;
     color: var(--text);
     text-decoration: none;
@@ -208,6 +233,19 @@ a:not([class]):hover {
     );
 }
 
+cite {
+    font-weight: bold;
+    color: var(--text);
+    text-decoration: none;
+    background-image: linear-gradient(
+        transparent 80%,
+        var(--highlight) 80%,
+        var(--highlight) 110%,
+        transparent 110%
+    );
+    background-size: 100% 100%;
+}
+
 code {
     font-size: 0.9em;
 }
@@ -228,12 +266,7 @@ video:focus {
 }
 
 .constrain--large {
-    max-width: 1500px;
-}
-
-.slab {
-    max-width: 1600px;
-    margin: 0 auto;
+    max-width: 1400px;
 }
 
 @media (min-width: 1000px) {
@@ -241,6 +274,7 @@ video:focus {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     .col-two > * {
@@ -249,8 +283,19 @@ video:focus {
 
     .col-three {
         display: grid;
-        grid-template-columns: repeat(3 , 1fr);
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 3rem;
+    }
+
+    .col-two-center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .col-two-center > * {
+        width: 47%;
     }
 }
 
@@ -264,6 +309,16 @@ video:focus {
         padding-left: 4rem;
         padding-right: 4rem;
     }
+}
+
+.pad-sm {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.pad-md {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .pad-lg {
@@ -375,6 +430,7 @@ video:focus {
 .nav a:hover {
     color: var(--text-shade);
 }
+
 .nav a:not(:first-child):after {
     position: absolute;
     left: 20%;
@@ -388,6 +444,7 @@ video:focus {
     transform: translateY(-4px);
     opacity: 0;
 }
+
 .nav a:not(:first-child):hover:after,
 .nav a.active:after {
     transform: translateY(0);
@@ -398,8 +455,9 @@ video:focus {
 
 .hero {
     margin-top: 2rem;
-    margin-bottom: 6rem;n
+    margin-bottom: 6rem;
 }
+
 .hero-video,
 .hero-img {
     position: relative;
@@ -461,8 +519,8 @@ video:focus {
 
 blockquote {
     font-family: "Karla", sans-serif;
-    font-size: calc(14px + (24.28 - 14) * var(--body-lock));
-    border-left: 5px solid var(--primary);
+    font-size: calc(14px + (22.28 - 14) * var(--body-lock));
+    border-left: 4px solid var(--primary);
     padding: 1em 2em;
     position: relative;
 }
@@ -471,7 +529,7 @@ blockquote:before {
     content: "";
     position: absolute;
     top: 50%;
-    left: -7px;
+    left: -8px;
     height: 2em;
     background-color: var(--blank);
     width: 10px;
@@ -489,9 +547,9 @@ blockquote:after {
     left: -0.5em;
     background-size: contain;
     background-image: url("data:image/svg+xml,%0A%3Csvg height='100%25' viewBox='0 0 975.036 975.036' width='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23847efc' d='m925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50z'/%3E%3Cpath fill='%23847efc' d='m106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2s30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z'/%3E%3C/svg%3E");
-    width: 1em;
-    height: 1em;
-    margin-top: -0.5em;
+    width: 0.8em;
+    height: 0.8em;
+    margin-top: -0.4em;
     transition: 0.4s transform ease-in-out;
 }
 blockquote:active:after {
@@ -504,10 +562,11 @@ blockquote cite {
     margin-top: 1em;
 }
 
-/* teams */
+/* team */
 
 .team,
-.what {
+.what,
+.how {
     margin-top: 2rem;
     margin-bottom: 6rem;
 }
@@ -575,7 +634,8 @@ blockquote cite {
 
 @media (min-width: 1000px) {
     .team,
-    .what {
+    .what,
+    .how {
         margin-top: 4rem;
     }
 
@@ -726,7 +786,6 @@ blockquote cite {
 .flow-img {
     max-width: 260px;
     margin: 0 auto 2rem;
-
 }
 
 @media (min-width: 800px) {
@@ -756,9 +815,9 @@ blockquote cite {
 
 .mockup-container {
     padding: 5rem 1rem 2rem;
-    display: flex; 
+    display: flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
 }
 
 @media (min-width: 800px) {
@@ -772,8 +831,8 @@ blockquote cite {
     position: relative;
 }
 
-.mockup:after{
-    content: '';
+.mockup:after {
+    content: "";
     position: absolute;
     width: 115%;
     height: 123%;
@@ -804,4 +863,9 @@ blockquote cite {
     height: auto;
     width: 100%;
     padding-bottom: 2rem;
+}
+
+/* Quote block */
+
+.quoteblock {
 }
