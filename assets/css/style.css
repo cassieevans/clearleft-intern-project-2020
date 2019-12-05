@@ -107,7 +107,11 @@ h5 {
   font-size: calc(14px + (22.28 - 14) * var(--body-lock));
 }
 
-q {
+p:not(.lead) {
+  max-width: 900px;
+}
+
+p.lead q {
   font-weight: bold;
 }
 
