@@ -10,12 +10,17 @@ let options = {
 if (scrollingPhones.length > 0) {
     let observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && !entry.target.dataset.isScrolling) {
+                entry.target.dataset.isScrolling = true;
+
                 var i = 5;
                 var int = setInterval(function() {
                     entry.target.scrollTo(0, i);
                     i += 1;
-                    if (i >= 300) clearInterval(int);
+                    if (i >= 300) {
+                        clearInterval(int);
+                        entry.target.removeAttribute('data-is-scrolling');
+                    }
                 }, 5);
             }
         });
