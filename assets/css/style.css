@@ -431,6 +431,10 @@ video:focus {
   z-index: 1;
 }
 
+.nav a:not(.nav-link-logo):hover {
+  color: var(--text-shade);
+}
+
 @media (min-width: 600px) {
   .nav a,
   .nav .nav-link-logo {
@@ -440,10 +444,6 @@ video:focus {
   .nav a:nth-of-type(1) {
     margin-right: auto;
   }
-}
-
-.nav a:hover {
-  color: var(--text-shade);
 }
 
 .nav a:not(:first-child):after {
