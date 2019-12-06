@@ -402,10 +402,13 @@ video:focus {
   z-index: 10;
 }
 
-.nav-link-logo {
+.nav .nav-link-logo {
   font-family: 'Karla', sans-serif;
   font-weight: 900;
   font-size: calc(14px + (24.28 - 14) * var(--body-lock));
+  color: #fff;
+  background: #005eb8;
+  padding: 0 0.5rem;
 }
 
 @media (min-width: 600px) {
@@ -429,7 +432,8 @@ video:focus {
 }
 
 @media (min-width: 600px) {
-  .nav a {
+  .nav a,
+  .nav .nav-link-logo {
     padding: 0 1rem;
   }
 
