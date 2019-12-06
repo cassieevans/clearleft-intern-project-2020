@@ -216,7 +216,7 @@ h1.underline--animated {
 
 @keyframes animatedBackground {
   to {
-    background-size: 70% 100%;
+    background-size: 65% 100%;
   }
 }
 
@@ -407,7 +407,7 @@ video:focus {
   font-weight: 900;
   font-size: calc(14px + (24.28 - 14) * var(--body-lock));
   color: #fff;
-  background: #005eb8;
+  background: var(--primary);
   padding: 0 0.5rem;
 }
 
