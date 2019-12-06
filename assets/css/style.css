@@ -210,6 +210,10 @@ p.lead p.lead q {
     forwards;
 }
 
+.underline--animated-alt {
+  animation-name: animatedBackgroundAlt;
+}
+
 h1.underline--animated {
   line-height: 1.2;
 }
@@ -217,6 +221,12 @@ h1.underline--animated {
 @keyframes animatedBackground {
   to {
     background-size: 65% 100%;
+  }
+}
+
+@keyframes animatedBackgroundAlt {
+  to {
+    background-size: 35% 100%;
   }
 }
 
